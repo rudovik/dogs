@@ -2,7 +2,6 @@ import { revalidatePath } from "next/cache"
 import styles from "./page.module.scss"
 import { kv } from "@vercel/kv"
 import { redirect } from "next/navigation"
-import Link from "next/link"
 
 interface Dog {
   name: string
@@ -21,8 +20,8 @@ export default async function DogEditPage({
   //   image: "https://images.dog.ceo/breeds/schnauzer-giant/n02097130_310.jpg",
   //   breed: "schnauzer-giant",
   // })
-  const dog = await kv.get<Dog>(key)
   // console.log(dog?.name)
+  const dog = await kv.get<Dog>(key)
 
   async function upDog(formData: FormData) {
     "use server"
@@ -45,19 +44,10 @@ export default async function DogEditPage({
     redirect(`/dogs/${params.id}`)
   }
 
-  function submitForm(e: any) {
-    "use client"
-    e.preventDefault()
-  }
-
-  // return true
-
   return (
     <div className={styles.card}>
       <div className={styles.cardBody}>
         <h2>Edit {dog?.name}</h2>
-        <Link href={`/dogs/${params.id}`}>Go to {dog?.name}</Link>
-
         <form>
           <label>Name</label>
           <input name="title" type="text" defaultValue={dog?.name} />
