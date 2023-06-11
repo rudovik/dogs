@@ -58,7 +58,7 @@ export default async function DogEditPage({
         <h2>Edit {dog?.name}</h2>
         <Link href={`/dogs/${params.id}`}>Go to {dog?.name}</Link>
 
-        <form onSubmit={submitForm}>
+        <form>
           <label>Name</label>
           <input name="title" type="text" defaultValue={dog?.name} />
           <label>Image</label>
