@@ -45,6 +45,10 @@ export default async function DogEditPage({
     redirect(`/dogs/${params.id}`)
   }
 
+  function submitForm(e: any) {
+    e.preventDefault()
+  }
+
   // return true
 
   return (
@@ -53,14 +57,14 @@ export default async function DogEditPage({
         <h2>Edit {dog?.name}</h2>
         <Link href={`/dogs/${params.id}`}>Go to {dog?.name}</Link>
 
-        <form action={upDog}>
+        <form onSubmit={submitForm}>
           <label>Name</label>
           <input name="title" type="text" defaultValue={dog?.name} />
           <label>Image</label>
           <input name="image" type="text" defaultValue={dog?.image} />
           <label>Breed</label>
           <input name="breed" type="text" defaultValue={dog?.breed} />
-          <button type="submit">Save and Continue</button>
+          <button formAction={upDog}>Save and Continue</button>
           <button formAction={upDogDeuce}>Save and Quit</button>
         </form>
       </div>
