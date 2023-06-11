@@ -46,6 +46,7 @@ export default async function DogEditPage({
   }
 
   function submitForm(e: any) {
+    "use client"
     e.preventDefault()
   }
 
