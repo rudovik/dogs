@@ -51,9 +51,7 @@ export default async function DogEditPage({
     <div className={styles.card}>
       <div className={styles.cardBody}>
         <h2>Edit {dog?.name}</h2>
-        <Link href={`/dogs/${params.id}`} prefetch={false}>
-          Go to {dog?.name}
-        </Link>
+        <Link href={`/dogs/${params.id}`}>Go to {dog?.name}</Link>
 
         <form action={upDog}>
           <label>Name</label>

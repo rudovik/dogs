@@ -26,9 +26,7 @@ export default async function Dog({ params }: { params: { id: string } }) {
           </div>
           <h2>Doug Profile</h2>
           <h3>{dog?.name}</h3>
-          <Link href={`/dogs/${params.id}/edit`} prefetch={false}>
-            Edit
-          </Link>
+          <Link href={`/dogs/${params.id}/edit`}>Edit</Link>
           <p>{`Total Likes: ${likes}`}</p>
           <Likes id={params.id} />
           <LikesOptimistic id={params.id} likeCount={likes} />
